@@ -1,13 +1,15 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const decodeToken = async (req, res, next) => {
-  const publicRoutes = ["/users/signup", "/users/login","/users/verify"];
-//   console.log(req.url);
+  const publicRoutes = ["/users/signup", "/users/login", "/users/verify"];
+  //   console.log(req.url);
 
   if (publicRoutes.includes(req.url)) {
     return next();
   }
   let token = req.headers["authorization"];
+  // console.log("Authorization", token);
+
   if (token) {
     try {
       token = token.split(" ")[1];
@@ -20,7 +22,7 @@ const decodeToken = async (req, res, next) => {
   } else {
     return res.status(403).send({ message: "You are not authorized" });
   }
-//   console.log(req.headers["authorization"]);
+  //   console.log(req.headers["authorization"]);
   //   next();
 };
 

@@ -20,7 +20,7 @@ const AllRoutes = () => {
             </Private>
           }
         />
-        {Ability(["admin"]) ? (
+        {Ability(["admin","user"]) ? (
           <Route
             path="/assign"
             element={

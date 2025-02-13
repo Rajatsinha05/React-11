@@ -36,6 +36,11 @@ exports.login = async (req, res) => {
   return res.status(201).send({ user, token });
 };
 exports.getAllUsers = async (req, res) => {
-  let users = await User.findAll();
+  const { role } = req.query;
+  let query = {};
+  if (role) {
+    query.role = role;
+  }
+  let users = await User.find(query);
   res.status(200).send(users);
 };
