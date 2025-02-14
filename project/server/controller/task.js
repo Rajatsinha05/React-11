@@ -7,6 +7,9 @@ exports.create = async (req, res) => {
 };
 
 exports.getAllTask = async (req, res) => {
-  let task = await Task.find();
+  let query = req.query || {};
+  let task = await Task.find(query)
+    .populate("assignedBy", "name")
+    .populate("assignTo", "name");
   return res.send(task);
 };

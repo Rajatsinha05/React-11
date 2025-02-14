@@ -21,7 +21,7 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            {Ability(["admin","user"]) ? (
+            {Ability(["admin"]) ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/assign">
                   Assign
