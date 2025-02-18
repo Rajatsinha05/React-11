@@ -1,4 +1,5 @@
 const Task = require("../models/task");
+const TaskComment = require("../models/taskCommentSchema");
 
 exports.create = async (req, res) => {
   req.body.assignedBy = req.user.id;
@@ -12,4 +13,15 @@ exports.getAllTask = async (req, res) => {
     .populate("assignedBy", "name")
     .populate("assignTo", "name");
   return res.send(task);
+};
+
+exports.getTaskById = async (req, res) => {
+  const { taskId } = req.params;
+  let tasks = await Task.findById(taskId)
+    .populate("assignedBy", "name")
+    .populate("assignTo", "name");
+  let status = await TaskComment.find({ task: taskId });
+  console.log("Status: ", status);
+
+  return res.json({ tasks, status });
 };

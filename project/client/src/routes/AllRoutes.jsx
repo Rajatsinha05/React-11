@@ -7,6 +7,7 @@ import Signup from "../page/Signup";
 import PageNotFound from "../page/PageNotFound";
 import Private from "./Private";
 import Ability from "../role/Ability";
+import TaskDetails from "../page/TaskDetails";
 
 const AllRoutes = () => {
   return (
@@ -20,7 +21,7 @@ const AllRoutes = () => {
             </Private>
           }
         />
-        {Ability(["admin","user"]) ? (
+        {Ability(["admin", "user"]) ? (
           <Route
             path="/assign"
             element={
@@ -33,7 +34,7 @@ const AllRoutes = () => {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-
+        <Route path="/task-details/:id" element={<TaskDetails />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>

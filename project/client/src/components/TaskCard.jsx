@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TaskCard = ({
   title,
@@ -9,11 +10,13 @@ const TaskCard = ({
   createdAt,
   status,
   role,
+  _id
 }) => {
-  console.log(role);
+
+  const nav = useNavigate()
 
   return (
-    <div>
+    <div onClick={() => nav(`/task-details/${_id}`)}>
       <h1>{title}</h1>
       <p>{desc}</p>
       <p>{status}</p>
