@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { add } from './redux/todoSlice'
+import { fetchBlogs } from './redux/blog/blogApi'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -13,6 +14,9 @@ const App = () => {
       }
     ))
   }
+  useEffect(() => {
+    dispatch(fetchBlogs())
+  }, [])
   return (
     <div>
       <button onClick={addTodo}>Add TODO</button>
