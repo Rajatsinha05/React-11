@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { getGoogleAuth, LoggedIn, reset, signup } from './config/firebase'
+import User from './User'
 
 const App = () => {
   let [email, setEmail] = useState("")
@@ -24,12 +25,13 @@ const App = () => {
   }
   return (
     <div>
-      <form onSubmit={handleSignup}>
+      {/* <form onSubmit={handleSignup}>
         <input type="email" name="" id="" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="text" name="" id="" value={password} onChange={(e) => setPassword(e.target.value)} />
         <input type="submit" value="login" />
       </form>
-      <button onClick={handleGoogleAuth}>google</button>
+      <button onClick={handleGoogleAuth}>google</button> */}
+      <User/>
     </div>
   )
 }

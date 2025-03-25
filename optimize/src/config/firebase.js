@@ -11,20 +11,29 @@ import {
 } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth/cordova";
 
+import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
-  apiKey: "AIzaSyAeO5A72q-P4ecxWamv6CVuVmwVdYxrdb0",
-  authDomain: "react-b410e.firebaseapp.com",
-  projectId: "react-b410e",
-  storageBucket: "react-b410e.firebasestorage.app",
-  messagingSenderId: "991356056269",
-  appId: "1:991356056269:web:18a26a2dbdd6219530af84",
-  measurementId: "G-86GD2GJC0Y",
+  apiKey: "AIzaSyBJKTWekOlS8Q9tUmlVGbDZ3z-jbb_NJnI",
+  authDomain: "database-756b0.firebaseapp.com",
+  projectId: "database-756b0",
+  storageBucket: "database-756b0.firebasestorage.app",
+  messagingSenderId: "283331444989",
+  appId: "1:283331444989:web:27f5930a1f8ba63872be94",
+  measurementId: "G-KJEWZ1Y2Q7",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+
+export const db = getFirestore(app);
+
+
+
+
+
+
 
 export const getGoogleAuth = async () => {
   const provider = new GoogleAuthProvider();
